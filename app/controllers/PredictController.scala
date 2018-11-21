@@ -18,6 +18,7 @@ class PredictController @Inject()(db: Database, cc: ControllerComponents) extend
   val rangeObj = new RangeController(db, cc)
   val outSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
   val resultSdf = new SimpleDateFormat("yyyy-MM-dd");
+  val x = 0.5
 
   def predictData() = Action { implicit request: Request[AnyContent] =>
 
@@ -53,7 +54,7 @@ class PredictController @Inject()(db: Database, cc: ControllerComponents) extend
 
     for (i <- 1 to 15) {
 
-      val predictNext = predictNextDay(0.5, priceList)
+      val predictNext = predictNextDay(x, priceList)
       val day = rangeObj.getEarlierDate(today, i)
 
       val jsonobj = new JSONObject();
