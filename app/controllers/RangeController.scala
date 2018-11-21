@@ -90,11 +90,12 @@ class RangeController @Inject()(db: Database, cc: ControllerComponents) extends 
     val stamp = new Timestamp(System.currentTimeMillis());
     val today = new Date(stamp.getTime());
 
-    val oneWeekBefore = getWeekBefore(today)
+    val oneWeekBefore = getEarlierDate(today, -7)
 
     try {
 
       val resultSet = getResultSet(con, "SELECT * from " + table + " where time between '" + convertDatetoString(oneWeekBefore, outSdf) + "' AND '" + convertDatetoString(today, outSdf) + "'")
+     // val resultSet = getResultSet(con, "SELECT * from bitcoin_prices")
       addToJsonArray(jsonarray, resultSet)
 
     } catch {
@@ -164,6 +165,20 @@ class RangeController @Inject()(db: Database, cc: ControllerComponents) extends 
 
   }
 
+  def addToJsonArray2(jsonarray: JSONArray, resultSet: ResultSet): Unit ={
+
+    while (resultSet.next()) {
+
+      val jsonobj = new JSONObject();
+      jsonobj.put("price", resultSet.getString("price"))
+      //jsonobj.put("time", resultSet.getString("time"))
+
+      jsonarray.put(jsonobj)
+
+    }
+
+  }
+
   def getAvg(jsonarray: JSONArray, resultSet: ResultSet): Unit ={
 
     var list = ListBuffer[BigDecimal]()
@@ -192,11 +207,11 @@ class RangeController @Inject()(db: Database, cc: ControllerComponents) extends 
 
   }
 
-  def getWeekBefore(date: java.util.Date): java.util.Date ={
+  def getEarlierDate(date: java.util.Date, num: Int): java.util.Date ={
 
     val calendar = Calendar.getInstance();
     calendar.setTime(date);
-    calendar.add(Calendar.DATE, -7);
+    calendar.add(Calendar.DATE, num);
 
     return calendar.getTime
 

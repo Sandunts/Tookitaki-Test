@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/sandun/IdeaProjects/PlayTest/conf/routes
-// @DATE:Mon Nov 12 10:14:41 AWST 2018
+// @SOURCE:/home/sandun/IdeaProjects/TookiTakiTest/conf/routes
+// @DATE:Tue Nov 20 23:45:11 AWST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -9,6 +9,26 @@ import _root_.controllers.Assets.Asset
 
 // @LINE:1
 package controllers.javascript {
+
+  // @LINE:9
+  class ReversePredictController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:9
+    def predictData: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PredictController.predictData",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "predict"})
+        }
+      """
+    )
+  
+  }
 
   // @LINE:1
   class ReverseRangeController(_prefix: => String) {

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/sandun/IdeaProjects/PlayTest/conf/routes
-// @DATE:Mon Nov 12 10:14:41 AWST 2018
+// @SOURCE:/home/sandun/IdeaProjects/TookiTakiTest/conf/routes
+// @DATE:Tue Nov 20 23:45:11 AWST 2018
 
 
 package router {

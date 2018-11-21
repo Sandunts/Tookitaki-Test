@@ -1,5 +1,5 @@
 
-name := "PlayTest"
+name := "TookiTakiTest"
 
 version := "0.1"
 
