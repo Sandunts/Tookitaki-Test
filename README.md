@@ -32,11 +32,24 @@ It will show the last week bitcoin prices data
 last week data http://localhost:9000/price/lastWeek.<br />
 lastmonth data http://localhost:9000/price/lastMonth<br />
 custom range data http://localhost:9000/price/range/{startDate}/{endDate} use yyyyddMM for date formats<br />
-get average date range http://localhost:9000/avg/{startDate}/{endDate} use yyyyddMM for date formats
+get average date range http://localhost:9000/avg/{startDate}/{endDate} use yyyyddMM for date formats<br />
+get next 15 days prediction http://localhost:9000/predict
+
+## About the prediction
+
+I used simple exponential smoothing method to predict next 15 days predictions. User need to set constent parameter x (0 < x < 1) to see the outputs. I default set that parameter to 0.5 but you can choose the best value for x so the value which results in the smallest MSE.
+
+This is the algorithm I used
+
+### Y<sub>t <sub> = xY<sub>t <sub> + x(1 - x)Y<sub>t-1 <sub> + x(1 - x)<sup>2</sup>Y<sub>t-2 </sub> ......
+ 
+ I used 12 sub catogories to predict the output. The advantage of this method is It minimize the effect of past values.
+   
+
 
 ## Improvements
 
-Allowing users to get the forecasted bitcoin price for next 15 days implementation.<br />
+Use advance algorith to predict bitcoin prices<br />
 Use query parameters instead of passing through url<br />
 adding table name as a configuration<br />
 proper logging mechanism
