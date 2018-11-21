@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/sandun/IdeaProjects/PlayTest/conf/routes,/home/sandun/IdeaProjects/PlayTest/target/scala-2.12/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/sandun/IdeaProjects/PlayTest/conf/tookitakiTest.conf,/home/sandun/IdeaProjects/PlayTest/target/scala-2.12/classes/tookitakiTest.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/sandun/IdeaProjects/PlayTest/conf/application.conf,/home/sandun/IdeaProjects/PlayTest/target/scala-2.12/classes/application.conf)[0m

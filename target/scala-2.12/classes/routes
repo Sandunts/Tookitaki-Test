@@ -1,0 +1,7 @@
+GET /price/range/:startDate/:endDate controllers.RangeController.getCustomRange(startDate: String, endDate: String)
+
+GET /price/lastWeek controllers.RangeController.getLastWeek
+
+GET /price/lastMonth controllers.RangeController.getLastMonth
+
+GET /avg/:startDate/:endDate controllers.RangeController.getAvgRange(startDate: String, endDate: String)
